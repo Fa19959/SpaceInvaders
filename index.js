@@ -8,6 +8,6 @@ const background = new Image();
 background.src ="images/space.png";
 
 function game(){
-console.log("game");
+ctx.drawImage(background,0,0,canvas.width,canvas.height);
 }
 setInterval(game, 1000/60);
