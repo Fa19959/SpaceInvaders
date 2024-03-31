@@ -9,6 +9,8 @@ canvas.height=600;
 const background = new Image();
 background.src ="images/space.png";
 
+const enmyController = new EnemyController(canvas);
+
 function game(){
 ctx.drawImage(background,0,0,canvas.width,canvas.height);
 }
