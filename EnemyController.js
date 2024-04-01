@@ -1,3 +1,5 @@
+import Enemy from "./Enemy.js";
+import MovingDirection from "./MovingDirection.js";
 export default class EnemyController {
     enemyMap = [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -8,12 +10,32 @@ export default class EnemyController {
         [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
       ];
       enemyRows = [];
+      
+      currentDirection = MovingDirection.right;
+      xVelocity = 0;
+      yVelocity = 0;
+      defaultXVelocity = 1;
+      defaultYVelocity = 1;
+      moveDownTimerDefault = 30;
+      moveDownTimer = this.moveDownTimerDefault;
+      fireBulletTimerDefault = 100;
+      fireBulletTimer = this.fireBulletTimerDefault;
+
+
+
     constructor(canvas){
         this.canvas= canvas;
         this.createEnemies();
 
     }
     draw(ctx){
+        this.drawEnemies(ctx);
+
+    }
+    drawEnemies(ctx){
+        this.enemyRows.flat().forEach((enemy)=>{
+            enemy.draw(ctx);
+        })
 
     }
     createEnemies(){
