@@ -31,13 +31,20 @@ export default class EnemyController {
 
     }
     updateVelocityAndDirection(){
-        
+        for (const enemyRow of this.enemyRows) {
+            if (this.currentDirection == MovingDirection.right) {
+              this.xVelocity = this.defaultXVelocity;
+              this.yVelocity = 0;
+            }
+        }
+
     }
 
     drawEnemies(ctx){
-        this.enemyRows.flat().forEach((enemy)=>{
+        this.enemyRows.flat().forEach((enemy) => {
+            enemy.move(this.xVelocity, this.yVelocity);
             enemy.draw(ctx);
-        })
+          });
 
     }
     createEnemies(){
