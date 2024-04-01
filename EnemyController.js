@@ -10,16 +10,13 @@ export default class EnemyController {
         [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
       ];
       enemyRows = [];
-      
+
       currentDirection = MovingDirection.right;
       xVelocity = 0;
       yVelocity = 0;
       defaultXVelocity = 1;
       defaultYVelocity = 1;
-      moveDownTimerDefault = 30;
-      moveDownTimer = this.moveDownTimerDefault;
-      fireBulletTimerDefault = 100;
-      fireBulletTimer = this.fireBulletTimerDefault;
+     
 
 
 
@@ -29,9 +26,14 @@ export default class EnemyController {
 
     }
     draw(ctx){
+        this.updateVelocityAndDirection();
         this.drawEnemies(ctx);
 
     }
+    updateVelocityAndDirection(){
+        
+    }
+
     drawEnemies(ctx){
         this.enemyRows.flat().forEach((enemy)=>{
             enemy.draw(ctx);
