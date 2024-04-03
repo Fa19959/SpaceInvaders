@@ -19,12 +19,32 @@ let isGameOver = false;
 let didWin = false;
 
 function game(){
+checkGameOver();
 ctx.drawImage(background,0,0,canvas.width,canvas.height);
-enmyController.draw(ctx);
-player.draw(ctx);
-playerBulletController.draw(ctx);
-enemyBulletController.draw(ctx);
-
-
+if (!isGameOver) {
+    enmyController.draw(ctx);
+    player.draw(ctx);
+    playerBulletController.draw(ctx);
+    enemyBulletController.draw(ctx);
+  }
 }
+
+function checkGameOver() {
+    if (isGameOver) {
+      return;
+    }
+  
+    if (enemyBulletController.collideWith(player)) {
+      isGameOver = true;
+    }
+  
+    if (enemyController.collideWith(player)) {
+      isGameOver = true;
+    }
+  
+    if (enemyController.enemyRows.length === 0) {
+      didWin = true;
+      isGameOver = true;
+    }
+  }
 setInterval(game, 1000/60);
