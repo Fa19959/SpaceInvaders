@@ -10,8 +10,13 @@ export default class BulletController {
         this.soundEnabled = soundEnabled;
     
         this.shootSound = new Audio("sounds/shoot.wav");
-        this.shootSound.volume = 0.1;
+        this.shootSound.volume = 0.5;
       }
+
+      draw(ctx) {
+       
+      }
+    
       shoot(x, y, velocity, timeTillNextBulletAllowed = 0) {
         if (
           this.timeTillNextBulletAllowed <= 0 &&
