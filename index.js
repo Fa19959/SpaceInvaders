@@ -20,6 +20,7 @@ let didWin = false;
 
 function game(){
 checkGameOver();
+displayGameOver();
 ctx.drawImage(background,0,0,canvas.width,canvas.height);
 if (!isGameOver) {
     enmyController.draw(ctx);
@@ -28,6 +29,16 @@ if (!isGameOver) {
     enemyBulletController.draw(ctx);
   }
 }
+function displayGameOver() {
+    if (isGameOver) {
+      let text = didWin ? "You Win" : "Game Over";
+      let textOffset = didWin ? 3.5 : 5;
+  
+      ctx.fillStyle = "white";
+      ctx.font = "70px Arial";
+      ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
+    }
+  }
 
 function checkGameOver() {
     if (isGameOver) {
