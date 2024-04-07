@@ -29,7 +29,7 @@ function game() {
       playerBulletController.draw(ctx);
       enemyBulletController.draw(ctx);
     }
-}  
+  }  
 function displayGameOver() {
     if (isGameOver) {
       let text = didWin ? "You Win" : "Game Over";
