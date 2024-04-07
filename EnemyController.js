@@ -47,8 +47,8 @@ export default class EnemyController {
         this.enemyRows.forEach((enemyRow) => {
           enemyRow.forEach((enemy, enemyIndex) => {
             if (this.playerBulletController.collideWith(enemy)) {
-             this.enemyDeathSound.currentTime = 0;
-            this.enemyDeathSound.play();
+              this.enemyDeathSound.currentTime = 0;
+              this.enemyDeathSound.play();
               enemyRow.splice(enemyIndex, 1);
             }
           });
@@ -56,6 +56,7 @@ export default class EnemyController {
     
         this.enemyRows = this.enemyRows.filter((enemyRow) => enemyRow.length > 0);
       }
+
     fireBullet() {
         this.fireBulletTimer--;
         if (this.fireBulletTimer <= 0) {
@@ -140,4 +141,8 @@ export default class EnemyController {
 
     }
 
+
+collideWith(sprite) {
+    return this.enemyRows.flat().some((enemy) => enemy.collideWith(sprite));
+  }
 }
