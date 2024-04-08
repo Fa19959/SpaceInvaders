@@ -1,5 +1,6 @@
 import Enemy from "./Enemy.js";
 import MovingDirection from "./MovingDirection.js";
+
 export default class EnemyController {
     enemyMap = [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -29,6 +30,7 @@ export default class EnemyController {
         this.enemyBulletController = enemyBulletController;
         this.playerBulletController = playerBulletController;
         this.enemyDeathSound = new Audio("sounds/enemy-death.wav");
+        // this is to add sound to the game
         this.enemyDeathSound.volume = 0.5;
 
         this.createEnemies();
